@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -38,9 +39,11 @@ const Hero = () => {
           <p className="font-medium font-quicksand text-sm text-[#fff] px-4 text-center">
             Are You A HealthCare Professional?
           </p>
-          <button className="bg-[#fff] w-full font-quicksand text-[#000] text-xl font-bold rounded-md p-3">
-            LEARN MORE
-          </button>
+          <Link to="//professionals">
+            <button className="bg-[#fff] w-full font-quicksand text-[#000] text-xl font-bold rounded-md p-3">
+              LEARN MORE
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -57,18 +60,22 @@ const Hero = () => {
             <p className="font-bold font-quicksand text-xl text-center">
               Are You A HealthCare Organisation?
             </p>
-            <button className="selector w-full font-quicksand text-[#fff] text-xl font-bold rounded-lg p-3">
-              LEARN MORE
-            </button>
+            <Link to="/organizations">
+              <button className="selector w-full font-quicksand text-[#fff] text-xl font-bold rounded-lg p-3">
+                LEARN MORE
+              </button>
+            </Link>
           </div>
 
           <div className="border-div mt-5 w-[60%]  rounded-full">
             <p className="font-bold font-quicksand text-xl  text-center">
               Are You A HealthCare Organisation?
             </p>
-            <button className="selector w-full text-[#fff] font-bold text-xl rounded-lg p-3 ">
-              LEARN MORE
-            </button>
+            <Link to="/professionals">
+              <button className="selector w-full text-[#fff] font-bold text-xl rounded-lg p-3 ">
+                LEARN MORE
+              </button>
+            </Link>
           </div>
 
           <div className="flex flex-row items-center justify-center ml-20 pt-12">
