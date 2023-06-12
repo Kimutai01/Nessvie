@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-app {
+  font-family: "Inter", sans-serif;
+}
+
+.selector {
+  background: linear-gradient(206.46deg, #53fbe6 6.69%, #396bff 86.33%);
+}
+
+.font-quicksand {
+  font-family: "Quicksand", sans-serif;
+}
+
+.bg-her {
+  background-image: url("/Rectangle.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.border-div {
+  border: 5px solid;
+  border-image-source: linear-gradient(
+    206.46deg,
+    #53fbe6 6.69%,
+    #396bff 86.33%
+  );
+  border-image-slice: 2;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
