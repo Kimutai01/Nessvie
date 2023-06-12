@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col md:flex-row md:items-end">
+    <div className="flex w-[100vw] flex-col md:flex-row md:items-end">
       <div>
         <img src="/linetop.png" alt="" className="hidden md:block" />
         <img
@@ -15,8 +15,8 @@ const Hero = () => {
         <img src="/mobvect.png" alt="" className="mt-[750px] block md:hidden" />
       </div>
 
-      <div className="font-quicksand z-50 text-center mt-12 py-4  bg-white block md:hidden absolute">
-        <h1 className="font-bold text-3xl uppercase">
+      <div className="font-quicksand z-50 text-center mt-12  bg-white block md:hidden absolute">
+        <h1 className="font-bold text-2xl uppercase">
           The revolution of healthcare
         </h1>
         <p className="text-[#19ba47] font-bold text-lg mt-10">
@@ -27,7 +27,7 @@ const Hero = () => {
 
       <div className="absolute top-[110%] md:hidden">
         <div className="rounded-lg border-4 border-white mt-10 mx-9 ">
-          <p className="font-medium font-quicksand text-xl text-[#fff] px-4 text-center">
+          <p className="font-medium font-quicksand text-sm text-[#fff] px-4 text-center">
             Are You A HealthCare Professional?
           </p>
           <button className="bg-[#fff] w-full font-quicksand text-[#000] text-xl font-bold rounded-md p-3">
@@ -35,7 +35,7 @@ const Hero = () => {
           </button>
         </div>
         <div className="rounded-lg border-4 border-white mt-5 mx-9">
-          <p className="font-medium font-quicksand text-xl text-[#fff] px-4 text-center">
+          <p className="font-medium font-quicksand text-sm text-[#fff] px-4 text-center">
             Are You A HealthCare Professional?
           </p>
           <button className="bg-[#fff] w-full font-quicksand text-[#000] text-xl font-bold rounded-md p-3">
