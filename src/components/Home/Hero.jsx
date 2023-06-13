@@ -3,21 +3,25 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="flex w-[100vw] flex-col md:flex-row md:items-end">
+    <div className="flex  flex-col md:flex-row">
       <div>
-        <img src="/linetop.png" alt="" className="hidden md:block" />
+        <img src="/linetop.png" alt=" " className="hidden md:block" />
         <img
           src="/old.png"
           alt=""
-          className="absolute top-[12%] hidden md:block"
+          className="mt-[-450px] z-50 hidden md:block"
         />
-        <img src="/vect.png" alt="" className="mt-20 hidden md:block" />
-        <img src="/mob.png" alt="" className="absolute md:hidden" />
-        <img src="/mobvect.png" alt="" className="mt-[750px] block md:hidden" />
+        <img src="/mob.png" alt="" className="relative md:hidden z-50 " />
+        <img src="/vect.png" alt="" className="mt-[-220px] hidden md:block" />
+        <img
+          src="/mobvect.png"
+          alt=""
+          className="mt-[-160px] w-[100%] block md:hidden"
+        />
       </div>
 
       <div className="font-quicksand z-50 text-center mt-12  bg-white block md:hidden absolute">
-        <h1 className="font-bold text-2xl uppercase">
+        <h1 className="font-bold text-2xl px-12 uppercase">
           The revolution of healthcare
         </h1>
         <p className="text-[#19ba47] font-bold text-lg mt-10">
@@ -26,7 +30,7 @@ const Hero = () => {
         <div className="h-[1px] mx-12 w-[300px] bg-[#e7da6d]"></div>
       </div>
 
-      <div className="absolute top-[110%] md:hidden">
+      <div className="block mt-[-250px] md:hidden">
         <div className="rounded-lg border-4 border-white mt-10 mx-9 ">
           <p className="font-medium font-quicksand text-sm text-[#fff] px-4 text-center">
             Are You A HealthCare Professional?
@@ -46,9 +50,24 @@ const Hero = () => {
           </Link>
         </div>
       </div>
+      <div className="block md:hidden">
+        <div className="flex flex-row items-center justify-center pt-12">
+          <div className="h-[1px] w-[120px] bg-[#e7da6d]"></div>
+          <p className="font-light ml-3 mr-3">Available on Mobile </p>
+          <div className="h-[1px] w-[120px] bg-[#e7da6d]"></div>
+        </div>
+        <div className="flex justify-around mt-5">
+          <div className="cursor-pointer">
+            <img src="/App.png" alt="" />
+          </div>
+          <div className="cursor-pointer">
+            <img src="/play.png" alt="" />
+          </div>
+        </div>
+      </div>
 
       <div className="bg-her hidden md:block">
-        <div className="font-quicksand z-50 w-[40%] absolute">
+        <div className="font-quicksand mt-20 mx-20 z-50 w-[40%] absolute h-full">
           <h1 className="font-bold text-4xl uppercase">
             The revolution of healthcare
           </h1>
@@ -91,7 +110,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <img src="/linebot.png" alt="" className="" />
+        <img src="/linebot.png" alt="" className="pt-36" />
       </div>
     </div>
   );

@@ -19,6 +19,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  height: 100%;
 }
 
 .border-div {
@@ -31,4 +32,19 @@
   border-image-slice: 2;
   box-sizing: border-box;
   border-radius: 15px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
