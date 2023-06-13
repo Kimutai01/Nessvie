@@ -48,3 +48,9 @@ body,
   display: flex;
   flex-direction: column;
 }
+
+.mob-vect {
+  background-image: url("/mobvect.png");
+  background-repeat: no-repeat;
+  height: 100%;
+}

@@ -9,7 +9,7 @@ const Hero = () => {
         <img
           src="/old.png"
           alt=""
-          className="mt-[-450px] z-50 hidden md:block"
+          className="mt-[-450px] z-50 hidden md:block relative"
         />
         <img src="/mob.png" alt="" className="relative md:hidden z-50 " />
         <img src="/vect.png" alt="" className="mt-[-220px] hidden md:block" />
