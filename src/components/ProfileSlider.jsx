@@ -41,7 +41,7 @@ const ProfileSlider = ({ id }) => {
 
   const addProfile = async (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/profiles", {
+    fetch("https://nesssvie-user-api.onrender.com/profiles", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

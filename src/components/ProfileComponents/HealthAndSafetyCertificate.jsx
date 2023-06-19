@@ -61,6 +61,7 @@ const HealthAndSafetyCertificate = ({
           if (Health_and_safety_certificate) {
             addProfile(e);
             navigate("/");
+
             window.location.reload();
           } else {
             alert("Please upload your Health and Safety Certificate");
