@@ -54,3 +54,13 @@ body,
   background-repeat: no-repeat;
   height: 100%;
 }
+
+.hom {
+  background-image: url("https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGpvYnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60");
+  background-repeat: no-repeat;
+  height: 100%;
+  background-size: cover;
+  object-fit: cover;
+
+  background-position: center;
+}
