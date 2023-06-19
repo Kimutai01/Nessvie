@@ -62,7 +62,10 @@ function App() {
                     />
                   }
                 />
-                <Route path="/" element={<Home profile={profile} />} />
+                {role === "admin" && <Route path="/" element={<Admin />} />}
+                {role === "user" && (
+                  <Route path="/" element={<Home profile={profile} />} />
+                )}
               </>
             )}
           </>
