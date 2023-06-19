@@ -13,7 +13,7 @@ import Profile from "./ProfileComponents/Profile";
 import ManualHandlingCertificate from "./ProfileComponents/ManualHandlingCertificate";
 import HealthAndSafetyCertificate from "./ProfileComponents/HealthAndSafetyCertificate";
 
-const ProfileSlider = ({ id }) => {
+const ProfileSlider = ({ id, setLoggedInUserProfile }) => {
   const swipe = () => {
     const swiper = document.querySelector(".swiper-container").swiper;
     swiper.slideNext();
@@ -67,7 +67,7 @@ const ProfileSlider = ({ id }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setLoggedInUserProfile(data);
       });
   };
 

@@ -38,7 +38,7 @@ function App() {
         setLoggedInUserId(data.user.id);
         setLoggedInUserProfile(data.user.profile);
       });
-  }, [storedToken]);
+  }, [storedToken, profile]);
 
   return (
     <>
@@ -58,6 +58,7 @@ function App() {
                   element={
                     <ProfileSlider
                       setLoggedInUserId={setLoggedInUserId}
+                      setLoggedInUserProfile={setLoggedInUserProfile}
                       id={id}
                     />
                   }
