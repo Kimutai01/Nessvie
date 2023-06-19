@@ -39,6 +39,37 @@ const ProfileSlider = ({ id }) => {
   const [Health_and_safety_certificate, setHealth_and_safety_certificate] =
     useState("");
 
+  const addProfile = async (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3000/api/v1/profiles", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        country: selectedCountry,
+        date_of_birth: selectedDate,
+        gender: selectedGender,
+        name: name,
+        email: email,
+
+        phone: phone,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip,
+        profession: profession,
+        manual_handling_certificate: Manual_handling_certificate,
+        health_and_safety_certificate: Health_and_safety_certificate,
+        user_id: id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <Swiper
       pagination={{
@@ -90,6 +121,7 @@ const ProfileSlider = ({ id }) => {
           Health_and_safety_certificate={Health_and_safety_certificate}
           swipe={swipe}
           swipeBack={swipeBack}
+          addProfile={addProfile}
         />
       </SwiperSlide>
     </Swiper>

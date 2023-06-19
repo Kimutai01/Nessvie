@@ -37,8 +37,6 @@ const Profile = ({
   profession,
   setProfession,
 }) => {
-  const [cookies, setCookie] = useCookies(["formData"]);
-
   return (
     <>
       <h1>Fill in your profile</h1>

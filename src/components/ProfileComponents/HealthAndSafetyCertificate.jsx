@@ -3,8 +3,8 @@ import React from "react";
 const HealthAndSafetyCertificate = ({
   Health_and_safety_certificate,
   setHealth_and_safety_certificate,
-  swipe,
   swipeBack,
+  addProfile,
 }) => {
   const uploadImageHealthCertificate = (files) => {
     const formData = new FormData();
@@ -55,15 +55,26 @@ const HealthAndSafetyCertificate = ({
       <button
         className="selector mt-8  w-24"
         type="button"
+        onClick={(e) => {
+          if (Health_and_safety_certificate) {
+            addProfile(e);
+          } else {
+            alert("Please upload your Health and Safety Certificate");
+          }
+        }}
+      >
+        Add Profile
+      </button>
+
+      <button
+        className="selector mt-8  w-24"
+        type="button"
         onClick={() => {
           swipeBack();
         }}
       >
         Back
-          </button>
-          
-         
-                    
+      </button>
     </div>
   );
 };
