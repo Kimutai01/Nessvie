@@ -9,14 +9,27 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import Profile from "./Profile";
-import Documents from "./Documents";
+import Profile from "./ProfileComponents/Profile";
+import Documents from "./ProfileComponents/Documents";
 
 const ProfileSlider = ({ id }) => {
   const swipe = () => {
     const swiper = document.querySelector(".swiper-container").swiper;
     swiper.slideNext();
   };
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedGender, setSelectedGender] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zip, setZip] = useState("");
+  const [profession, setProfession] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
+
   return (
     <Swiper
       pagination={{
@@ -26,7 +39,34 @@ const ProfileSlider = ({ id }) => {
       className="mySwiper swiper-container"
     >
       <SwiperSlide>
-        <Profile swipe={swipe} id={id} />
+        <Profile
+          swipe={swipe}
+          id={id}
+          selectedCountry={selectedCountry}
+          setSelectedCountry={setSelectedCountry}
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          selectedGender={selectedGender}
+          setSelectedGender={setSelectedGender}
+          name={name}
+          setName={setName}
+          email={email}
+          setEmail={setEmail}
+          phone={phone}
+          setPhone={setPhone}
+          address={address}
+          setAddress={setAddress}
+          city={city}
+          setCity={setCity}
+          state={state}
+          setState={setState}
+          zip={zip}
+          setZip={setZip}
+          profession={profession}
+          setProfession={setProfession}
+          selectedOption={selectedOption}
+          setSelectedOption={setSelectedOption}
+        />
       </SwiperSlide>
       <SwiperSlide>
         <Documents swipe={swipe} />

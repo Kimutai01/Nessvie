@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Profile from "./components/Profile";
+import Profile from "./components/ProfileComponents/Profile";
 import ProfileSlider from "./components/ProfileSlider";
 import Admin from "./components/Admin";
 import Home from "./pages/Home";
@@ -17,6 +17,7 @@ function App() {
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
   const [role, setLoggedInUserRole] = useState("");
   const [id, setLoggedInUserId] = useState("");
+  const [profile, setLoggedInUserProfile] = useState("");
   useEffect(() => {
     console.log(storedToken);
   }, [storedToken]);
@@ -35,6 +36,7 @@ function App() {
         console.log(data);
         setLoggedInUserRole(data.user.role);
         setLoggedInUserId(data.user.id);
+        setLoggedInUserProfile(data.user.profile);
       });
   }, [storedToken]);
 
@@ -60,7 +62,7 @@ function App() {
                     />
                   }
                 />
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home profile={profile} />} />
               </>
             )}
           </>

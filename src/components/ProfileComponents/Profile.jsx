@@ -11,82 +11,40 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
-const Profile = ({ swipe, id }) => {
+const Profile = ({
+  swipe,
+  id,
+  selectedCountry,
+  setSelectedCountry,
+  selectedDate,
+  setSelectedDate,
+  selectedGender,
+  setSelectedGender,
+  name,
+  setName,
+  email,
+  setEmail,
+  phone,
+  setPhone,
+  address,
+  setAddress,
+  city,
+  setCity,
+  state,
+  setState,
+  zip,
+  setZip,
+  profession,
+  setProfession,
+  selectedOption,
+  setSelectedOption,
+}) => {
   const [cookies, setCookie] = useCookies(["formData"]);
-  const [selectedCountry, setSelectedCountry] = useState("");
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedGender, setSelectedGender] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [zip, setZip] = useState("");
-  const [profession, setProfession] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
-
-  
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // const formData = {
-    //   full_name: name,
-    //   email,
-    //   phone,
-    //   address,
-    //   city,
-    //   country: selectedCountry,
-    //   zip_code: zip,
-    //   profession: selectedOption,
-    //   dob: selectedDate,
-    //   job: profession,
-    // };
-
-    // try {
-    //   const response = await fetch("http://localhost:3000/profiles", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(formData),
-    //   });
-
-    //   if (response.ok) {
-    //     console.log("Profile created successfully");
-    //     // Reset the form fields
-    //     setName("");
-    //     setEmail("");
-    //     setPhone("");
-    //     setAddress("");
-    //     setCity("");
-    //     setZip("");
-    //     setProfession("");
-    //     setSelectedOption("");
-    //     setSelectedCountry("");
-    //     setSelectedDate(null);
-    //     setSelectedGender("");
-    //     // Call the swipe function to move to the next slide
-    //     swipe();
-    //   } else {
-    //     console.error("Failed to create profile");
-    //     // Handle error scenario
-    //   }
-    // } catch (error) {
-    //   console.error("An error occurred:", error);
-    //   // Handle error scenario
-    // }
-
-    console.log("Profile created successfully");
-  };
 
   return (
     <>
       <h1>Fill in your profile</h1>
-      <form
-        className="flex shadow-lg justify-between mx-40 p-10 my-20 flex-col font-quicksand"
-        onSubmit={handleSubmit}
-      >
+      <form className="flex shadow-lg justify-between mx-40 p-10 my-20 flex-col font-quicksand">
         <label>
           Full name
           <input
@@ -201,8 +159,25 @@ const Profile = ({ swipe, id }) => {
         <button
           className="selector w-24"
           type="submit"
-          onClick={swipe}
-          onSubmit={handleSubmit}
+          onClick={() => {
+            if (
+              name &&
+              email &&
+              phone &&
+              address &&
+              city &&
+              state &&
+              zip &&
+              selectedOption &&
+              selectedCountry &&
+              selectedDate &&
+              selectedGender
+            ) {
+              swipe();
+            } else {
+              alert("Please fill in all fields");
+            }
+          }}
         >
           Next
         </button>
