@@ -4,6 +4,7 @@ const ManualHandlingCertificate = ({
   setManual_handling_certificate,
   Manual_handling_certificate,
   swipe,
+  swipeBack,
 }) => {
   const uploadImageHandlingCertificate = (files) => {
     const formData = new FormData();
@@ -23,6 +24,7 @@ const ManualHandlingCertificate = ({
 
   return (
     <div className="flex flex-col items-center h-[100vh] justify-center">
+      <h1>Add your Manual Handling Certificate</h1>
       <div className="h-[200px] w-[200px] rounded-full bg-gray-100 mb-4">
         <img
           src={Manual_handling_certificate || "/gif.png"}
@@ -61,6 +63,16 @@ const ManualHandlingCertificate = ({
         }}
       >
         Next
+      </button>
+
+      <button
+        className="selector mt-8  w-24"
+        type="button"
+        onClick={() => {
+          swipeBack();
+        }}
+      >
+        Back
       </button>
     </div>
   );

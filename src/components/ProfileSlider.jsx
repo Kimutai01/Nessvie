@@ -18,6 +18,11 @@ const ProfileSlider = ({ id }) => {
     const swiper = document.querySelector(".swiper-container").swiper;
     swiper.slideNext();
   };
+
+  const swipeBack = () => {
+    const swiper = document.querySelector(".swiper-container").swiper;
+    swiper.slidePrev();
+  };
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedGender, setSelectedGender] = useState("");
@@ -45,6 +50,7 @@ const ProfileSlider = ({ id }) => {
       <SwiperSlide>
         <Profile
           swipe={swipe}
+          swipeBack={swipeBack}
           id={id}
           selectedCountry={selectedCountry}
           setSelectedCountry={setSelectedCountry}
@@ -75,6 +81,7 @@ const ProfileSlider = ({ id }) => {
           setManual_handling_certificate={setManual_handling_certificate}
           Manual_handling_certificate={Manual_handling_certificate}
           swipe={swipe}
+          swipeBack={swipeBack}
         />
       </SwiperSlide>
       <SwiperSlide>
@@ -82,14 +89,9 @@ const ProfileSlider = ({ id }) => {
           setHealth_and_safety_certificate={setHealth_and_safety_certificate}
           Health_and_safety_certificate={Health_and_safety_certificate}
           swipe={swipe}
+          swipeBack={swipeBack}
         />
       </SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      <SwiperSlide>Slide 5</SwiperSlide>
-      <SwiperSlide>Slide 6</SwiperSlide>
-      <SwiperSlide>Slide 7</SwiperSlide>
-      <SwiperSlide>Slide 8</SwiperSlide>
-      <SwiperSlide>Slide 9</SwiperSlide>
     </Swiper>
   );
 };

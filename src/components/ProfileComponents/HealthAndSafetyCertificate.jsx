@@ -4,6 +4,7 @@ const HealthAndSafetyCertificate = ({
   Health_and_safety_certificate,
   setHealth_and_safety_certificate,
   swipe,
+  swipeBack,
 }) => {
   const uploadImageHealthCertificate = (files) => {
     const formData = new FormData();
@@ -24,6 +25,7 @@ const HealthAndSafetyCertificate = ({
 
   return (
     <div className="flex flex-col items-center h-[100vh] justify-center">
+      <h1>Add your Health and Safety Certificate</h1>
       <div className="h-[200px] w-[200px] rounded-full bg-gray-100 mb-4">
         <img
           src={Health_and_safety_certificate || "/gif.png"}
@@ -54,15 +56,14 @@ const HealthAndSafetyCertificate = ({
         className="selector mt-8  w-24"
         type="button"
         onClick={() => {
-          if (HealthAndSafetyCertificate) {
-            swipe();
-          } else {
-            alert("Please upload your Health and Safety Certificate");
-          }
+          swipeBack();
         }}
       >
-        Next
-      </button>
+        Back
+          </button>
+          
+         
+                    
     </div>
   );
 };
