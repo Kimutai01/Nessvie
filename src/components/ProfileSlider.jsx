@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 import Profile from "./ProfileComponents/Profile";
 import ManualHandlingCertificate from "./ProfileComponents/ManualHandlingCertificate";
+import HealthAndSafetyCertificate from "./ProfileComponents/HealthAndSafetyCertificate";
 
 const ProfileSlider = ({ id }) => {
   const swipe = () => {
@@ -29,6 +30,8 @@ const ProfileSlider = ({ id }) => {
   const [zip, setZip] = useState("");
   const [profession, setProfession] = useState("");
   const [Manual_handling_certificate, setManual_handling_certificate] =
+    useState("");
+  const [Health_and_safety_certificate, setHealth_and_safety_certificate] =
     useState("");
 
   return (
@@ -74,7 +77,13 @@ const ProfileSlider = ({ id }) => {
           swipe={swipe}
         />
       </SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
+      <SwiperSlide>
+        <HealthAndSafetyCertificate
+          setHealth_and_safety_certificate={setHealth_and_safety_certificate}
+          Health_and_safety_certificate={Health_and_safety_certificate}
+          swipe={swipe}
+        />
+      </SwiperSlide>
       <SwiperSlide>Slide 4</SwiperSlide>
       <SwiperSlide>Slide 5</SwiperSlide>
       <SwiperSlide>Slide 6</SwiperSlide>
