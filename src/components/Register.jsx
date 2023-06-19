@@ -31,7 +31,7 @@ const Register = ({ setStoredToken }) => {
         localStorage.setItem("token", data.jwt);
         console.log(data);
         setStoredToken(data.jwt);
-        navigate("/profile");
+        navigate("/");
       });
 
     setUsername("");

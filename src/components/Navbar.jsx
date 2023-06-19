@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ storedToken, setStoredToken }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="selector flex items-center justify-between md:px-10  py-2">
       <div>
@@ -13,6 +15,7 @@ const Navbar = ({ storedToken, setStoredToken }) => {
             onClick={() => {
               localStorage.removeItem("token");
               setStoredToken("");
+              navigate("/");
             }}
           >
             Logout

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Professionals from "./pages/Professionals";
 import Organizations from "./pages/Organizations";
-import Home from "./pages/Home";
+import SplashScreen from "./pages/SplashScreen";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -11,6 +11,7 @@ import Register from "./components/Register";
 import Profile from "./components/Profile";
 import ProfileSlider from "./components/ProfileSlider";
 import Admin from "./components/Admin";
+import Home from "./pages/Home";
 
 function App() {
   const [storedToken, setStoredToken] = useState(localStorage.getItem("token"));
@@ -49,18 +50,18 @@ function App() {
           <>
             {role === "admin" && <Route path="/" element={<Admin />} />}
             {role === "user" && (
-              <Route
-                path="/"
-                element={
-                  <ProfileSlider
-                    setLoggedInUserId={setLoggedInUserId}
-                    id={id}
-                  />
-                }
-              />
-            )}
-            {role === "organization" && (
-              <Route path="/" element={<ProfileSlider />} />
+              <>
+                <Route
+                  path="/profile"
+                  element={
+                    <ProfileSlider
+                      setLoggedInUserId={setLoggedInUserId}
+                      id={id}
+                    />
+                  }
+                />
+                <Route path="/" element={<Home />} />
+              </>
             )}
           </>
         ) : (
@@ -73,7 +74,7 @@ function App() {
               path="/register"
               element={<Register setStoredToken={setStoredToken} />}
             />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<SplashScreen />} />
             <Route path="/professionals" element={<Professionals />} />
             <Route path="/organizations" element={<Organizations />} />
           </>

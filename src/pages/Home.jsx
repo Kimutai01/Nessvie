@@ -1,14 +1,9 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Home/Hero";
-import Footer from "../components/Footer";
+import React from 'react'
 
 const Home = () => {
   return (
-    <div className="page-container">
-      <Hero />
-    </div>
-  );
-};
+    <div>Home</div>
+  )
+}
 
-export default Home;
+export default Home
