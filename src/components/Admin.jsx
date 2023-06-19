@@ -37,6 +37,7 @@ const Admin = () => {
       .then((data) => {
         console.log(data);
         fetchProfiles();
+        alert("Profile approved");
       });
   };
 
