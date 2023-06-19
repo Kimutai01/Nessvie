@@ -26,13 +26,14 @@ const ProfileSlider = ({ id }) => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedGender, setSelectedGender] = useState("");
-  const [name, setName] = useState("");
+  const [first_name, setFirst_name] = useState("");
+  const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
-  const [zip, setZip] = useState("");
+  const [post_code, setPost_code] = useState("");
   const [profession, setProfession] = useState("");
   const [Manual_handling_certificate, setManual_handling_certificate] =
     useState("");
@@ -41,7 +42,7 @@ const ProfileSlider = ({ id }) => {
 
   const addProfile = async (e) => {
     e.preventDefault();
-    fetch("https://nesssvie-user-api.onrender.com/profiles", {
+    fetch("http://localhost:3000/profiles", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,13 +51,14 @@ const ProfileSlider = ({ id }) => {
         country: selectedCountry,
         dob: selectedDate,
         gender: selectedGender,
-        full_name: name,
+        first_name: first_name,
+        surname: surname,
         email: email,
         phone: phone,
         address: address,
         city: city,
         state: state,
-        zip_code: zip,
+        post_code: post_code,
         job: profession,
         manual_handling_certificate: Manual_handling_certificate,
         health_and_safety_certificate: Health_and_safety_certificate,
@@ -88,8 +90,10 @@ const ProfileSlider = ({ id }) => {
           setSelectedDate={setSelectedDate}
           selectedGender={selectedGender}
           setSelectedGender={setSelectedGender}
-          name={name}
-          setName={setName}
+          first_name={first_name}
+          setFirst_name={setFirst_name}
+          surname={surname}
+          setSurname={setSurname}
           email={email}
           setEmail={setEmail}
           phone={phone}
@@ -100,8 +104,8 @@ const ProfileSlider = ({ id }) => {
           setCity={setCity}
           state={state}
           setState={setState}
-          zip={zip}
-          setZip={setZip}
+          post_code={post_code}
+          setPost_code={setPost_code}
           profession={profession}
           setProfession={setProfession}
         />

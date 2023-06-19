@@ -20,8 +20,10 @@ const Profile = ({
   setSelectedDate,
   selectedGender,
   setSelectedGender,
-  name,
-  setName,
+  first_name,
+  setFirst_name,
+  surname,
+  setSurname,
   email,
   setEmail,
   phone,
@@ -32,8 +34,8 @@ const Profile = ({
   setCity,
   state,
   setState,
-  zip,
-  setZip,
+  post_code,
+  setPost_code,
   profession,
   setProfession,
 }) => {
@@ -42,13 +44,24 @@ const Profile = ({
       <h1>Fill in your profile</h1>
       <form className="flex shadow-lg justify-between mx-40 p-10 my-20 flex-col font-quicksand">
         <label>
-          Full name
+          First name:
           <input
             type="text"
             name="name"
-            value={name}
-            placeholder="Enter your username"
-            onChange={(e) => setName(e.target.value)}
+            value={first_name}
+            placeholder="Enter your first name"
+            onChange={(e) => setFirst_name(e.target.value)}
+          />
+        </label>
+
+        <label>
+          Surname:
+          <input
+            type="text"
+            name="name"
+            value={surname}
+            placeholder="Enter your last name"
+            onChange={(e) => setSurname(e.target.value)}
           />
         </label>
         <label>
@@ -107,13 +120,13 @@ const Profile = ({
         </label>
 
         <label>
-          Zip code:
+          Post code:
           <input
             type="text"
-            name="zip"
-            value={zip}
-            placeholder="Enter your zip code"
-            onChange={(e) => setZip(e.target.value)}
+            name="post_code"
+            value={post_code}
+            placeholder="Enter your post code"
+            onChange={(e) => setPost_code(e.target.value)}
           />
         </label>
 
@@ -161,13 +174,15 @@ const Profile = ({
           type="button"
           onClick={() => {
             if (
-              name &&
+              first_name &&
+              surname &&
               email &&
               phone &&
               address &&
               city &&
               state &&
-              zip &&
+              post_code &&
+              profession &&
               selectedCountry &&
               selectedDate &&
               selectedGender

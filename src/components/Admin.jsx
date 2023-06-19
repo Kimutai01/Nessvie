@@ -9,15 +9,12 @@ const Admin = () => {
 
   const fetchProfiles = async () => {
     try {
-      const response = await fetch(
-        "https://nesssvie-user-api.onrender.com/profiles",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${localStorage.token}`,
-          },
-        }
-      );
+      const response = await fetch("http://localhost:3000/profiles", {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${localStorage.token}`,
+        },
+      });
       const data = await response.json();
       setProfiles(data.profiles);
     } catch (error) {

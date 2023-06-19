@@ -12,7 +12,7 @@ const Register = ({ setStoredToken }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("https://nesssvie-user-api.onrender.com/api/v1/users", {
+    fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: {
         Accepts: "application/json",
