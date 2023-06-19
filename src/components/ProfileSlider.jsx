@@ -41,24 +41,23 @@ const ProfileSlider = ({ id }) => {
 
   const addProfile = async (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/api/v1/profiles", {
+    fetch("http://localhost:3000/profiles", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         country: selectedCountry,
-        date_of_birth: selectedDate,
+        dob: selectedDate,
         gender: selectedGender,
-        name: name,
+        full_name: name,
         email: email,
-
         phone: phone,
         address: address,
         city: city,
         state: state,
-        zip: zip,
-        profession: profession,
+        zip_code: zip,
+        job: profession,
         manual_handling_certificate: Manual_handling_certificate,
         health_and_safety_certificate: Health_and_safety_certificate,
         user_id: id,

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const HealthAndSafetyCertificate = ({
   Health_and_safety_certificate,
@@ -6,6 +7,7 @@ const HealthAndSafetyCertificate = ({
   swipeBack,
   addProfile,
 }) => {
+  const navigate = useNavigate();
   const uploadImageHealthCertificate = (files) => {
     const formData = new FormData();
 
@@ -58,6 +60,7 @@ const HealthAndSafetyCertificate = ({
         onClick={(e) => {
           if (Health_and_safety_certificate) {
             addProfile(e);
+            navigate("/");
           } else {
             alert("Please upload your Health and Safety Certificate");
           }
