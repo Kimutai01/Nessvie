@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Home = ({ profile }) => {
@@ -11,10 +11,12 @@ const Home = ({ profile }) => {
 
       {profile ? (
         <>
-          <button>
+          {/* <button>
             <a href="/profile">View Profile</a>
+          </button> */}
+          <button className="selector text-white p-2 ml-10 rounded-xl text-center">
+            view jobs
           </button>
-          <button>view jobs</button>
         </>
       ) : (
         <button className="selector text-white p-2 ml-10 rounded-xl text-center">
