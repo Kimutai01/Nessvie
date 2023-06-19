@@ -36,8 +36,6 @@ const Profile = ({
   setZip,
   profession,
   setProfession,
-  selectedOption,
-  setSelectedOption,
 }) => {
   const [cookies, setCookie] = useCookies(["formData"]);
 
@@ -122,7 +120,11 @@ const Profile = ({
         </label>
 
         <label htmlFor="profession">Select a profession:</label>
-        <select id="profession" value={selectedOption}>
+        <select
+          id="profession"
+          value={profession}
+          onChange={(e) => setProfession(e.target.value)}
+        >
           <option value="">Select...</option>
           <option value="nurse">Nurse</option>
           <option value="carer">Carer</option>
@@ -158,7 +160,7 @@ const Profile = ({
 
         <button
           className="selector w-24"
-          type="submit"
+          type="button"
           onClick={() => {
             if (
               name &&
@@ -168,7 +170,6 @@ const Profile = ({
               city &&
               state &&
               zip &&
-              selectedOption &&
               selectedCountry &&
               selectedDate &&
               selectedGender

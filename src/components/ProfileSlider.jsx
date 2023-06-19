@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 import Profile from "./ProfileComponents/Profile";
-import Documents from "./ProfileComponents/Documents";
+import ManualHandlingCertificate from "./ProfileComponents/ManualHandlingCertificate";
 
 const ProfileSlider = ({ id }) => {
   const swipe = () => {
@@ -28,7 +28,8 @@ const ProfileSlider = ({ id }) => {
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
   const [profession, setProfession] = useState("");
-  const [selectedOption, setSelectedOption] = useState("");
+  const [Manual_handling_certificate, setManual_handling_certificate] =
+    useState("");
 
   return (
     <Swiper
@@ -36,7 +37,7 @@ const ProfileSlider = ({ id }) => {
         type: "progressbar",
       }}
       modules={[Pagination, Navigation]}
-      className="mySwiper swiper-container"
+      className="mySwiper swiper-container swiper-no-swiping"
     >
       <SwiperSlide>
         <Profile
@@ -64,12 +65,14 @@ const ProfileSlider = ({ id }) => {
           setZip={setZip}
           profession={profession}
           setProfession={setProfession}
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
         />
       </SwiperSlide>
       <SwiperSlide>
-        <Documents swipe={swipe} />
+        <ManualHandlingCertificate
+          setManual_handling_certificate={setManual_handling_certificate}
+          Manual_handling_certificate={Manual_handling_certificate}
+          swipe={swipe}
+        />
       </SwiperSlide>
       <SwiperSlide>Slide 3</SwiperSlide>
       <SwiperSlide>Slide 4</SwiperSlide>
