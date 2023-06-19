@@ -26,10 +26,7 @@ const Profile = ({ swipe, id }) => {
   const [profession, setProfession] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-  };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
