@@ -175,18 +175,6 @@ const Profile = ({
 
         <div className="flex flex-col gap-2">
           <label htmlFor="country">Country:</label>
-          {/* <select
-            value={selectedCountry}
-            onChange={(e) => setSelectedCountry(e.target.value)}
-            className="border border-gray-300 py-1 px-2 rounded md:w-[13.5rem]"
-          >
-            <option value="">Select a country</option>
-            {Object.keys(countries).map((countryCode) => (
-              <option key={countryCode} value={countryCode}>
-                {countries[countryCode].name}
-              </option>
-            ))}
-          </select> */}
           <Select
             options={countryOptions}
             value={selectedCountry}
