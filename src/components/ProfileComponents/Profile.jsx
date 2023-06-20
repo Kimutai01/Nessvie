@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { countries } from "countries-list";
 import { useCookies } from "react-cookie";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import Select from 'react-select';
+import countryList from 'react-select-country-list'
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -39,138 +43,186 @@ const Profile = ({
   profession,
   setProfession,
 }) => {
+    const countryOptions = useMemo(() => countryList().getData(), [])
   return (
     <>
-      <h1>Fill in your profile</h1>
-      <form className="flex shadow-lg justify-between mx-40 p-10 my-20 flex-col font-quicksand">
-        <label>
-          First name:
-          <input
-            type="text"
-            name="name"
-            value={first_name}
-            placeholder="Enter your first name"
-            onChange={(e) => setFirst_name(e.target.value)}
-          />
-        </label>
+      <h1 className="font-quicksand font-bold text-center mt-12 uppercase text-2xl">Fill in your profile</h1>
+      <form className="flex flex-col gap-6 shadow-lg justify-between md:mx-40 p-10 my-10 font-quicksand">
+        <div className="flex md:flex-row flex-col md:gap-20">
+          <div className="flex flex-col gap-2">
+            <label>First name:</label>
+            <input
+              type="text"
+              name="name"
+              value={first_name}
+              placeholder="Enter your first name"
+              onChange={(e) => setFirst_name(e.target.value)}
+              className="border border-gray-300 py-1 px-2 rounded"
+            />
+          </div>
 
-        <label>
-          Surname:
-          <input
-            type="text"
-            name="name"
-            value={surname}
-            placeholder="Enter your last name"
-            onChange={(e) => setSurname(e.target.value)}
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="text"
-            name="email"
-            value={email}
-            placeholder="Enter your contact email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
+          <div className="flex flex-col gap-2">
+            <label>Surname:</label>
+            <input
+              type="text"
+              name="name"
+              value={surname}
+              placeholder="Enter your last name"
+              onChange={(e) => setSurname(e.target.value)}
+              className="border border-gray-300 py-1 px-2 rounded"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label>Email:</label>
+            <input
+              type="text"
+              name="email"
+              value={email}
+              placeholder="Enter your contact email"
+              onChange={(e) => setEmail(e.target.value)}
+              className="border border-gray-300 py-1 px-2 rounded"
+            />
+          </div>
+        </div>
+      <div className="flex md:flex-row flex-col md:gap-20">
+        <div className="flex flex-col gap-2">
+          <label> Phone number: </label>
+            <PhoneInput
+              type="text"
+              name="phone"
+              value={phone}
+              placeholder="Enter your phone number"
+              country={'gb'}
+              onChange={(e) => {
+                setPhone(e)
+              }}
+              className="rounded"
+              inputProps={{
+                name: 'phone',
+                required: true,
+                autoFocus: true,
+                style: { width: '220px' }
+              }}
+            />
+        </div>
 
-        <label>
-          Phone number:
-          <input
-            type="text"
-            name="phone"
-            value={phone}
-            placeholder="Enter your phone number"
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </label>
-
-        <label>
-          Address:
+        <div className="flex flex-col gap-2">
+          <label>Address:</label>
           <input
             type="text"
             name="address"
             value={address}
             placeholder="Enter your address"
             onChange={(e) => setAddress(e.target.value)}
+            className="border border-gray-300 py-1 px-2 rounded"
           />
-        </label>
+        </div>
 
-        <label>
-          City:
-          <input
-            type="text"
-            name="city"
-            value={city}
-            placeholder="Enter your city"
-            onChange={(e) => setCity(e.target.value)}
+        <div className="flex flex-col gap-2">
+          <label>City:</label>
+            <input
+              type="text"
+              name="city"
+              value={city}
+              placeholder="Enter your city"
+              onChange={(e) => setCity(e.target.value)}
+              className="border border-gray-300 py-1 px-2 rounded"
+            />
+        </div>
+      </div>
+
+      <div className="flex md:flex-row flex-col md:gap-20">
+        <div className="flex flex-col gap-2">
+          <label>State:</label>
+            <input
+              type="text"
+              name="state"
+              value={state}
+              placeholder="Enter your state"
+              onChange={(e) => setState(e.target.value)}
+              className="border border-gray-300 py-1 px-2 rounded"
+            />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label>Post code:</label>
+            <input
+              type="text"
+              name="post_code"
+              value={post_code}
+              placeholder="Enter your post code"
+              onChange={(e) => setPost_code(e.target.value)}
+              className="border border-gray-300 py-1 px-2 rounded"
+            />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label htmlFor="profession">Profession:</label>
+          <select
+            id="profession"
+            value={profession}
+            onChange={(e) => setProfession(e.target.value)}
+            className="border border-gray-300 py-1 px-2 rounded md:w-56"
+          >
+            <option value="">Select...</option>
+            <option value="nurse">Nurse</option>
+            <option value="carer">Carer</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="flex md:flex-row flex-col md:gap-20">
+
+        <div className="flex flex-col gap-2">
+          <label htmlFor="country">Country:</label>
+          {/* <select
+            value={selectedCountry}
+            onChange={(e) => setSelectedCountry(e.target.value)}
+            className="border border-gray-300 py-1 px-2 rounded md:w-[13.5rem]"
+          >
+            <option value="">Select a country</option>
+            {Object.keys(countries).map((countryCode) => (
+              <option key={countryCode} value={countryCode}>
+                {countries[countryCode].name}
+              </option>
+            ))}
+          </select> */}
+          <Select
+            options={countryOptions}
+            value={selectedCountry}
+            onChange={(e) => setSelectedCountry(e)}
+            className="rounded md:w-[13.5rem]"
           />
-        </label>
+        </div>
 
-        <label>
-          State:
-          <input
-            type="text"
-            name="state"
-            value={state}
-            placeholder="Enter your state"
-            onChange={(e) => setState(e.target.value)}
+        <div className="flex flex-col gap-2">
+          <label htmlFor="date">Date of Birth:</label>
+          <DatePicker
+            selected={selectedDate}
+            onChange={(date) => setSelectedDate(date)}
+            placeholderText="Select your date of birth"
+            className="border border-gray-300 py-1 px-2 rounded md:w-52"
           />
-        </label>
+        </div>
 
-        <label>
-          Post code:
-          <input
-            type="text"
-            name="post_code"
-            value={post_code}
-            placeholder="Enter your post code"
-            onChange={(e) => setPost_code(e.target.value)}
-          />
-        </label>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="country">Gender:</label>
+          <select
+            value={selectedGender}
+            onChange={(e) => setSelectedGender(e.target.value)}
+            className="border border-gray-300 py-1 px-2 rounded md:w-56"
+          >
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
 
-        <label htmlFor="profession">Select a profession:</label>
-        <select
-          id="profession"
-          value={profession}
-          onChange={(e) => setProfession(e.target.value)}
-        >
-          <option value="">Select...</option>
-          <option value="nurse">Nurse</option>
-          <option value="carer">Carer</option>
-        </select>
-
-        <select
-          value={selectedCountry}
-          onChange={(e) => setSelectedCountry(e.target.value)}
-        >
-          <option value="">Select a country</option>
-          {Object.keys(countries).map((countryCode) => (
-            <option key={countryCode} value={countryCode}>
-              {countries[countryCode].name}
-            </option>
-          ))}
-        </select>
-
-        <DatePicker
-          selected={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
-          placeholderText="Select your date of birth"
-        />
-
-        <select
-          value={selectedGender}
-          onChange={(e) => setSelectedGender(e.target.value)}
-        >
-          <option value="">Select gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-        </select>
-
+      <div className="flex justify-center items-center mt-6">
         <button
-          className="selector w-24"
+          className="selector py-4 px-8 text-white font-bold"
           type="button"
           onClick={() => {
             if (
@@ -195,6 +247,7 @@ const Profile = ({
         >
           Next
         </button>
+      </div>
       </form>
     </>
   );

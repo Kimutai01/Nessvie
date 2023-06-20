@@ -39,49 +39,59 @@ const Register = ({ setStoredToken }) => {
     setPassword("");
   };
   return (
-    <>
-      <form className="flex shadow-lg justify-between mx-40 p-10 my-20 flex-col font-quicksand">
-        <label>
-          Username:
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="text"
-            name="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button className="selector w-24" onClick={handleSubmit}>
+    <div className="flex flex-col justify-center items-center h-full gap-10">
+      <h1 className="text-center font-bold font-quicksand uppercase text-4xl ">
+        Register with Nessvie!
+      </h1>
+      <form className="shadow-lg border py-10 md:px-40 px-12 font-quicksand flex flex-col gap-10">
+      <div className="flex justify-center items-center flex-col gap-6">
+        <div className="flex flex-col gap-2">
+          <label>Username: </label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="border border-gray-300 py-1 px-2 rounded w-72"
+            />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label>Email:</label>
+            <input
+              type="text"
+              name="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="border border-gray-300 py-1 px-2 rounded w-72"
+            />
+        </div>
+        <div className="flex flex-col gap-2">
+          <label>Password: </label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="border border-gray-300 py-1 px-2 rounded w-72"
+            />
+        </div>
+      </div>
+      <div className="flex justify-center items-center">
+        <button className="selector px-4 py-2" onClick={handleSubmit}>
           Submit
         </button>
+      </div>
       </form>
-      <div className="text-center mb-10">
+      <div className="text-center flex justify-center mt-4">
         <p className="font-quicksand mb-5 ">Already have an account?</p>
-        <Link to="/login" className="selector font-quicksand w-28  p-2">
+        <Link to="/login" className="underline text-[#396bff] font-quicksand">
           Login
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 

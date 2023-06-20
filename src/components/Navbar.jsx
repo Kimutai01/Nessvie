@@ -9,7 +9,7 @@ const Navbar = ({ storedToken, setStoredToken }) => {
       <div>
         <img src="/lo.png" alt="logo" className="" />
       </div>
-      <div className="font-quicksand font-bold text-sm bg-[#fff] h-6 rounded-lg">
+      <div className="font-quicksand font-bold text-sm bg-white rounded-lg">
         {storedToken ? (
           <button
             onClick={() => {
@@ -17,18 +17,19 @@ const Navbar = ({ storedToken, setStoredToken }) => {
               setStoredToken("");
               navigate("/");
             }}
+            className="px-4 py-2"
           >
             Logout
           </button>
         ) : (
           <>
             <Link to="/login">
-              <button className="uppercase rounded-lg h-full px-2 text-[#fff] selector">
+              <button className="uppercase rounded-lg h-full px-4 py-2 text-white selector">
                 log in
               </button>
             </Link>
             <Link to="/register">
-              <button className="uppercase px-2">Register</button>
+              <button className="uppercase px-4 py-2">Register</button>
             </Link>
           </>
         )}
