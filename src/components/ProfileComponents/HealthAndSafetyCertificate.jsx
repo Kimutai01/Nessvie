@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { BsCamera } from "react-icons/bs";
 
 const HealthAndSafetyCertificate = ({
   Health_and_safety_certificate,
