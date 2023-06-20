@@ -1,4 +1,5 @@
 import React from "react";
+import { BsCamera } from "react-icons/bs";
 
 const ManualHandlingCertificate = ({
   setManual_handling_certificate,
@@ -25,31 +26,35 @@ const ManualHandlingCertificate = ({
   return (
     <div className="flex flex-col items-center h-[100vh] justify-center">
       <h1>Add your Manual Handling Certificate</h1>
-      <div className="h-[200px] w-[200px] rounded-full bg-gray-100 mb-4">
+      {/* <div className="h-[200px] w-[200px] rounded-full bg-gray-100 mb-4">
         <img
           src={Manual_handling_certificate || "/gif.png"}
           className="h-full w-full object-cover rounded-full"
           alt="Manual Handling Certificate"
         />
+      </div> */}
+      <div className="file-upload-container">
+        <input
+          type="file"
+          accept="image/*"
+          style={{ display: "none" }}
+          id="uploadManualHandlingCertificate"
+          onChange={(e) => uploadImageHandlingCertificate(e.target.files)}
+        />
+        <label
+          htmlFor="uploadManualHandlingCertificate"
+          className="file-upload-label flex outline items-center border border-gray-300 rounded px-4 py-2 bg-white hover:bg-gray-100 cursor-pointer"
+        >
+          <input
+            type="text"
+            className="file-upload-input focus:outline-none text-gray-700"
+            placeholder="Upload Photo"
+            readOnly
+            value={Manual_handling_certificate.name}
+          />
+          <BsCamera size={25} className="mr-2" />
+        </label>
       </div>
-      <input
-        type="file"
-        accept="image/*"
-        style={{ display: "none" }}
-        id="uploadManualHandlingCertificate"
-        onChange={(e) => uploadImageHandlingCertificate(e.target.files)}
-      />
-      <label
-        htmlFor="uploadManualHandlingCertificate"
-        className="w-[312px] h-[41px] flex justify-center items-center  bg-[#47B7EF]"
-        style={{
-          borderRadius: "8px",
-
-          cursor: "pointer",
-        }}
-      >
-        Upload Photo
-      </label>
 
       <button
         className="selector mt-8  w-24"

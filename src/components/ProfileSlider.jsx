@@ -78,7 +78,7 @@ const ProfileSlider = ({ id, setLoggedInUserProfile }) => {
       }}
       modules={[Pagination, Navigation]}
       className="mySwiper swiper-container swiper-no-swiping"
-    >
+    >  
       <SwiperSlide>
         <Profile
           swipe={swipe}

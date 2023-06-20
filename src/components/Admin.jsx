@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const Admin = () => {
   const [profiles, setProfiles] = useState([]);
+  const [approvedProfiles, setApprovedProfiles] = useState([]);
 
   useEffect(() => {
     fetchProfiles();
@@ -19,6 +20,9 @@ const Admin = () => {
 
       .then((data) => {
         setProfiles(data.filter((profile) => profile.approved === false));
+        setApprovedProfiles(
+          data.filter((profile) => profile.approved === true)
+        );
       });
   };
 
@@ -53,6 +57,14 @@ const Admin = () => {
                 <li key={profile.id}>
                   <h3>{profile.first_name}</h3>
                   <p>Email: {profile.email}</p>
+                  <img
+                    src={profile.manual_handling_certificate}
+                    alt="profile"
+                  />
+                  <img
+                    src={profile.health_and_safety_certificate}
+                    alt="profile"
+                  />
                   <button onClick={() => approveProfile(profile.id)}>
                     Approve
                   </button>
@@ -61,6 +73,23 @@ const Admin = () => {
           )
         ) : (
           <h1>No profiles to approve</h1>
+        )}
+
+        <h1 className="text-xl font-bold text-center uppercase">
+          Approved profiles
+        </h1>
+        {approvedProfiles.length > 0 ? (
+          approvedProfiles.map(
+            (profile) =>
+              profile.approved === true && (
+                <li key={profile.id}>
+                  <h3>{profile.first_name}</h3>
+                  <p>Email: {profile.email}</p>
+                </li>
+              )
+          )
+        ) : (
+          <h1>No profiles approved</h1>
         )}
       </ul>
     </div>
