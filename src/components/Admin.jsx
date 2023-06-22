@@ -10,7 +10,7 @@ const Admin = () => {
   }, [profiles.length]);
 
   const fetchProfiles = () => {
-    fetch("https://nessvie.onrender.com/profiles", {
+    fetch("http://127.0.0.1:3000/profiles", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${localStorage.token}`,
@@ -27,7 +27,7 @@ const Admin = () => {
   };
 
   const approveProfile = (id) => {
-    fetch(`https://nessvie.onrender.com/profiles/${id}`, {
+    fetch(`http://127.0.0.1:3000/profiles/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

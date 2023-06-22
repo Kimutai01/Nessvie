@@ -12,7 +12,7 @@ const Register = ({ setStoredToken }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("https://nessvie.onrender.com/api/v1/users", {
+    fetch("http://127.0.0.1:3000/api/v1/users", {
       method: "POST",
       headers: {
         Accepts: "application/json",
@@ -44,9 +44,9 @@ const Register = ({ setStoredToken }) => {
         Register with Nessvie!
       </h1>
       <form className="shadow-lg border py-10 md:px-40 px-12 font-quicksand flex flex-col gap-10">
-      <div className="flex justify-center items-center flex-col gap-6">
-        <div className="flex flex-col gap-2">
-          <label>Username: </label>
+        <div className="flex justify-center items-center flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <label>Username: </label>
             <input
               type="text"
               name="name"
@@ -55,9 +55,9 @@ const Register = ({ setStoredToken }) => {
               onChange={(e) => setUsername(e.target.value)}
               className="border border-gray-300 py-1 px-2 rounded w-72"
             />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label>Email:</label>
+          </div>
+          <div className="flex flex-col gap-2">
+            <label>Email:</label>
             <input
               type="text"
               name="email"
@@ -66,9 +66,9 @@ const Register = ({ setStoredToken }) => {
               onChange={(e) => setEmail(e.target.value)}
               className="border border-gray-300 py-1 px-2 rounded w-72"
             />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label>Password: </label>
+          </div>
+          <div className="flex flex-col gap-2">
+            <label>Password: </label>
             <input
               type="password"
               name="password"
@@ -77,13 +77,13 @@ const Register = ({ setStoredToken }) => {
               onChange={(e) => setPassword(e.target.value)}
               className="border border-gray-300 py-1 px-2 rounded w-72"
             />
+          </div>
         </div>
-      </div>
-      <div className="flex justify-center items-center">
-        <button className="selector px-4 py-2" onClick={handleSubmit}>
-          Submit
-        </button>
-      </div>
+        <div className="flex justify-center items-center">
+          <button className="selector px-4 py-2" onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
       </form>
       <div className="text-center flex justify-center mt-4">
         <p className="font-quicksand mb-5 ">Already have an account?</p>

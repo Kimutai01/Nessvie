@@ -23,7 +23,7 @@ function App() {
   }, [storedToken]);
 
   useEffect(() => {
-    fetch("https://nessvie.onrender.com/api/v1/profile ", {
+    fetch("http://127.0.0.1:3000/api/v1/profile ", {
       method: "GET",
       headers: {
         Accepts: "application/json",
@@ -38,7 +38,7 @@ function App() {
         setLoggedInUserId(data.user.id);
         setLoggedInUserProfile(data.user.profile);
       });
-  }, [storedToken, profile]);
+  }, [storedToken]);
 
   return (
     <>

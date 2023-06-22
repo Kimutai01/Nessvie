@@ -58,16 +58,56 @@ const HealthAndSafetyCertificate = ({
         </label>
       </div>
 
+      <div className="file-upload-container">
+        <input
+          type="file"
+          accept="image/*"
+          style={{ display: "none" }}
+          id="uploadManualHandlingCertificate"
+          onChange={(e) => uploadImageHealthCertificate(e.target.files)}
+        />
+        <label
+          htmlFor="uploadManualHandlingCertificate"
+          className="file-upload-label flex outline items-center border border-gray-300 rounded px-4 py-2 bg-white hover:bg-gray-100 cursor-pointer"
+        >
+          <input
+            type="text"
+            className="file-upload-input focus:outline-none text-gray-700"
+            placeholder="Upload Photo"
+            readOnly
+          />
+          <BsCamera size={25} className="mr-2" />
+        </label>
+      </div>
+
+      <div className="file-upload-container">
+        <input
+          type="file"
+          accept="image/*"
+          style={{ display: "none" }}
+          id="uploadManualHandlingCertificate"
+          onChange={(e) => uploadImageHealthCertificate(e.target.files)}
+        />
+        <label
+          htmlFor="uploadManualHandlingCertificate"
+          className="file-upload-label flex outline items-center border border-gray-300 rounded px-4 py-2 bg-white hover:bg-gray-100 cursor-pointer"
+        >
+          <input
+            type="text"
+            className="file-upload-input focus:outline-none text-gray-700"
+            placeholder="Upload Photo"
+            readOnly
+          />
+          <BsCamera size={25} className="mr-2" />
+        </label>
+      </div>
+
       <button
         className="selector mt-8  w-24"
         type="button"
         onClick={(e) => {
-          if (Health_and_safety_certificate) {
-            addProfile(e);
-            navigate("/");
-          } else {
-            alert("Please upload your Health and Safety Certificate");
-          }
+          addProfile(e);
+          navigate("/");
         }}
       >
         Add Profile
